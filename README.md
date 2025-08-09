@@ -1,12 +1,36 @@
-# React + Vite
+SmartBank – Real-Time Fraud Monitoring (Frontend Only)
+A modern React dashboard that simulates real-time card transactions, highlights suspicious activity, and visualizes trends. It’s frontend-only (no backend required) and is designed to later plug into a Kafka + ML + Spring Boot stack.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✨ Features
+Live stream simulation: New transactions every second (risk score + flags)
 
-Currently, two official plugins are available:
+KPIs: Txns/min, flagged/min, volume/min
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Charts: Risk trend & amount trend (auto-updating)
 
-## Expanding the ESLint configuration
+Transactions table: Search, flagged-only filter, pagination
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Alerts: Recent high-risk events
+
+Routing: Dashboard, Transactions, Alerts, Login (stub)
+
+Styling: Tailwind CSS, dark UI
+
+🧠 How it works (demo mode)
+src/services/stream.js simulates a Kafka consumer by emitting a new transaction every 1s.
+
+State is stored in a lightweight global store (Zustand), so KPIs, charts, table, and alerts update instantly.
+
+Replace this with WebSocket/SSE later to connect a real backend.
+
+🛠 Tech Stack
+React 18 + React Router
+
+Tailwind CSS
+
+Recharts (charts)
+
+Zustand (state)
+
+Vite (dev/build)
+
